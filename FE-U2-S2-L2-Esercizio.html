@@ -279,12 +279,19 @@ EXTRAS
       <section class="my-4 mx-5" id="welcomeSummer">
         <div class="d-flex justify-content-between">
           <h2>Welcome Summer</h2>
-          <button class="border-0 bg-white text-info fw-semibold">
+          <button
+            class="border-0 bg-white text-info fw-semibold"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseWelcome"
+          >
             Nascondi sezione
           </button>
         </div>
 
-        <div class="row row-cols-2 row-cols-lg-3 row-cols-xl-6">
+        <div
+          class="row row-cols-2 row-cols-lg-3 row-cols-xl-6"
+          id="collapseWelcome"
+        >
           <div class="col sm-2 mb-3 lg-4">
             <div class="card border-0 mt-2 shadow-lg">
               <img
@@ -553,7 +560,7 @@ EXTRAS
             >Contattaci</a
           >
           <p class="text-white pb-5">
-            &copy; 2021 Doge Travel LTD. All rights Deserved
+            &copy; 2021 Doge Travel LTD. All rights Reserved
           </p>
         </div>
       </footer>
