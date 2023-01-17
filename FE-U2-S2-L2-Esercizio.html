@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+  <head>
+    <!-- Abbiamo bisogno di un sito web per un'agenzia di viaggi!
+
+In questa pagina aggiungerai destinazioni di posti che sogni di visitare in futuro.
+
+Il progetto non richiede alcuna customizzazione di CSS, dovrai crearlo interamente usando le classi di bootstrap, sia per quello che riguarda il layout che lo stile.
+
+
+Testa frequentemente il tuo lavoro nelle 3 principali risoluzioni (mobile, tablet, desktop) usando i developer tools del browser nella sezione emulazione device, per una maggiore precisione.
+
+Inizia utilizzando i componenti esistenti di Bootstrap 5 per creare la tua pagina (modificali all'occorrenza utilizzando le utility classes di bootstrap: colori, spazi, margini, dimensioni etc...)
+Usa container > row > col-* in questo ordine per ottenere un layout responsive perfetto.
+
+Esercizi:
+
+1) Implementa una navbar con questi elementi di menu:
+Home
+Saldi
+Welcome Summer
+Last Minute
+Recensioni
+
+Collegherai ogni sezione della pagina agli elementi del menu corrispondenti. 
+
+2) Aggiungi un logo alla navbar, un qualsiasi logo di agenzia di viaggi, anche inventata.
+
+3) Aggiungi una sezione introduttiva con il nome, il payoff dell'agenzia, 
+una breve descrizione in corsivo e una call-to-action (bottone) "Prenota ora" di colore azzurro chiaro e testo bianco e grassetto
+
+Il background della sezione sarà grigio chiaro e con bordi arrotondati e del padding generoso all'interno
+
+4) Implementa la sezione "Saldi". Qui mostrerai 4 destinazioni.
+
+In questa sezione dovranno esserci:
+
+4 card per destinazioni per linea a schermo grande - desktop (quattro sulla stessa linea)
+3 card per destinazioni per linea a schermo medio  - tablet  (una dovrà scomparire)
+2 card per destinazioni per linea a schermo piccolo - mobile (due per linea)
+
+le card avranno un bordo di 2px azzurro chiaro, il bottone azzurro chiaro e testo default
+
+5) Implementa la sezione "Welcome Summer". Qui mostrerai 6 destinazioni al tuo utente. (nessun bordo, ma stesso stile dei bottoni precedenti)
+
+In questa sezione dovranno esserci:
+
+6 card per destinazioni per linea a schermo extra large
+3 card per destinazioni per linea a schermo grande (desktop)
+2 card per destinazioni per linea a schermo medio (tablet)
+2 card per destinazioni per linea a schermo piccolo (mobile)
+
+6) Implementa la sezione "Offerta del giorno". Qui avrai:
+
+66% dello spazio dedicato all'immagine del luogo di destinazione
+33% dedicato al nome, date, prezzo e un badge con "best offer" come testo
+
+l'immagine avrà i bordi arrotondati e un'ombra leggera
+per il contenuto: il nome dovrà essere più grande del resto,
+le date dovranno essere formattate con font "monospace",
+il prezzo dovrà essere definito come "lead"
+e il badge sarà scuro
+
+
+7) Rendi invisibile la sezione "Offerta del giorno" su schermi piccoli.
+
+8) Aggiungi nella sezione "Welcome Summer" un'ombra grande ad ogni card.
+
+9) Crea una sezione "Last Minute", in cui mostrerai 6 immagini delle destinazioni last minute come rettangoli ombreggiati dai bordi arrotondati, senza testo. Rendile responsive come preferisci!
+
+10) Crea una sezione "Recensioni", dove l'utente potrà trovare alcuni feedback da utenti fittizi. 
+Piccola immagine tonda a sinistra con bordo 2px azzurro, nome utente e recensione a destra
+
+11) Crea un footer con le informazioni dell'agenzia e un bottone "Contattaci".
+
+
+
+EXTRAS
+
+12) Crea un bottone vicino ad ogni sezione per collassarla e riaprirla se premuto.
+
+13) Crea la possibilità di contare il numero di "viaggi" presenti sulla pagina e visualizzare il risultato in un alert.
+
+14) Crea un modale con un campo email e un messaggio.
+
+15) Quando l'utente cliccherà su "Contattaci", il modale dovrà essere visualizzato.
+
+16) Crea una funzione che aggiunga un badge con la scritta "HOT" su ognuna delle offerte "Welcome Summer" posizionato in alto a destra.
+
+17) Crea una funzione che rimuova tutte le "card" dalla pagina
+
+-->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Doge Travel Agency</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary px-3">
+        <div class="container-fluid">
+          <a class="navbar-brand d-flex align-items-center" href="#">
+            <img
+              src="./assets/img/doge.svg"
+              alt="logo"
+              width="32"
+              height="36"
+              class="d-inline-block align-text-top me-1"
+            />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#saldi">Saldi</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#welcomeSummer">Welcome Summer</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#lastMinute">Last Minute</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#reviews">Recensioni</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Cerca posti da sogno"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-danger" type="submit">
+                Cerca
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section
+        class="bg-body-tertiary text-secondary p-4 mt-5 mx-5 rounded shadow-sm text-center text-lg-start"
+      >
+        <div
+          class="d-flex align-items-center justify-content-start border-bottom"
+        >
+          <h1 class="fw-normal">Doge Travel-</h1>
+          <span class="fw-lighter">Much wow, very travel</span>
+        </div>
+        <p class="my-2 fs-5 fst-italic">
+          Scopri le destinazioni più calde del momento!
+        </p>
+        <a href="#" class="btn btn-info text-white fw-bold px-4 my-2 mt-4"
+          >Prenota ora</a
+        >
+      </section>
+
+      <section class="my-4 mx-5" id="saldi">
+        <div class="d-flex justify-content-between">
+          <h2>Saldi</h2>
+          <button
+            class="border-0 bg-white text-info fw-semibold"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseSaldi"
+          >
+            Nascondi sezione
+          </button>
+        </div>
+
+        <div
+          class="row row-cols-2 row-cols-md-3 row-cols-lg-4 collapse-show"
+          id="collapseSaldi"
+        >
+          <div class="col sm-2 mb-3 lg-4">
+            <div class="card border border-2 border-info mt-2">
+              <img
+                src="https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/02/a0002487/img/basic/a0002487_main.jpg?20230106161700"
+                width="300"
+                height="200"
+                class="card-img-top"
+                alt="picture of japan"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Titolo</h5>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Excepturi, voluptatibus! Voluptatibus repellat dolorum
+                  pariatur. Sequi eos ipsum fuga?
+                </p>
+                <a href="#" class="btn btn-info">Prenota</a>
+              </div>
+            </div>
+          </div>
+          <div class="col sm-2 mb-3 lg-4">
+            <div class="card border border-2 border-info mt-2">
+              <img
+                src="https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/02/a0002487/img/basic/a0002487_main.jpg?20230106161700"
+                width="300"
+                height="200"
+                class="card-img-top"
+                alt="picture of japan"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Titolo</h5>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Excepturi, voluptatibus! Voluptatibus repellat dolorum
+                  pariatur. Sequi eos ipsum fuga?
+                </p>
+                <a href="#" class="btn btn-info">Prenota</a>
+              </div>
+            </div>
+          </div>
+          <div class="col sm-2 mb-3 lg-4">
+            <div class="card border border-2 border-info mt-2">
+              <img
+                src="https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/02/a0002487/img/basic/a0002487_main.jpg?20230106161700"
+                width="300"
+                height="200"
+                class="card-img-top"
+                alt="picture of japan"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Titolo</h5>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Excepturi, voluptatibus! Voluptatibus repellat dolorum
+                  pariatur. Sequi eos ipsum fuga?
+                </p>
+                <a href="#" class="btn btn-info">Prenota</a>
+              </div>
+            </div>
+          </div>
+          <div class="col sm-2 mb-3 lg-4">
+            <div class="card border border-2 border-info mt-2">
+              <img
+                src="https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/02/a0002487/img/basic/a0002487_main.jpg?20230106161700"
+                width="300"
+                height="200"
+                class="card-img-top"
+                alt="picture of japan"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Titolo</h5>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Excepturi, voluptatibus! Voluptatibus repellat dolorum
+                  pariatur. Sequi eos ipsum fuga?
+                </p>
+                <a href="#" class="btn btn-info">Prenota</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="my-4 mx-5" id="welcomeSummer">
+        <div class="d-flex justify-content-between">
+          <h2>Welcome Summer</h2>
+          <button class="border-0 bg-white text-info fw-semibold">
+            Nascondi sezione
+          </button>
+        </div>
+
+        <div class="row row-cols-2 row-cols-lg-3 row-cols-xl-6">
+          <div class="col sm-2 mb-3 lg-4">
+            <div class="card border-0 mt-2 shadow-lg">
+              <img
+                src="https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/02/a0002487/img/basic/a0002487_main.jpg?20230106161700"
+                class="card-img-top"
+                alt="picture of japan"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Titolo</h5>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Excepturi, voluptatibus! Voluptatibus repellat dolorum
+                  pariatur. Sequi eos ipsum fuga?
+                </p>
+                <a href="#" class="btn btn-info">Prenota</a>
+              </div>
+            </div>
+          </div>
+          <div class="col sm-2 mb-3 lg-4">
+            <div class="card border-0 mt-2 shadow-lg">
+              <img
+                src="https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/02/a0002487/img/basic/a0002487_main.jpg?20230106161700"
+                class="card-img-top"
+                alt="picture of japan"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Titolo</h5>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Excepturi, voluptatibus! Voluptatibus repellat dolorum
+                  pariatur. Sequi eos ipsum fuga?
+                </p>
+                <a href="#" class="btn btn-info">Prenota</a>
+              </div>
+            </div>
+          </div>
+          <div class="col sm-2 mb-3 lg-4">
+            <div class="card border-0 mt-2 shadow-lg">
+              <img
+                src="https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/02/a0002487/img/basic/a0002487_main.jpg?20230106161700"
+                class="card-img-top"
+                alt="picture of japan"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Titolo</h5>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Excepturi, voluptatibus! Voluptatibus repellat dolorum
+                  pariatur. Sequi eos ipsum fuga?
+                </p>
+                <a href="#" class="btn btn-info">Prenota</a>
+              </div>
+            </div>
+          </div>
+          <div class="col sm-2 mb-3 lg-4">
+            <div class="card border-0 mt-2 shadow-lg">
+              <img
+                src="https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/02/a0002487/img/basic/a0002487_main.jpg?20230106161700"
+                class="card-img-top"
+                alt="picture of japan"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Titolo</h5>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Excepturi, voluptatibus! Voluptatibus repellat dolorum
+                  pariatur. Sequi eos ipsum fuga?
+                </p>
+                <a href="#" class="btn btn-info">Prenota</a>
+              </div>
+            </div>
+          </div>
+          <div class="col sm-2 mb-3 lg-4">
+            <div class="card border-0 mt-2 shadow-lg">
+              <img
+                src="https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/02/a0002487/img/basic/a0002487_main.jpg?20230106161700"
+                class="card-img-top"
+                alt="picture of japan"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Titolo</h5>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Excepturi, voluptatibus! Voluptatibus repellat dolorum
+                  pariatur. Sequi eos ipsum fuga?
+                </p>
+                <a href="#" class="btn btn-info">Prenota</a>
+              </div>
+            </div>
+          </div>
+          <div class="col sm-2 mb-3 lg-4">
+            <div class="card border-0 mt-2 shadow-lg">
+              <img
+                src="https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/02/a0002487/img/basic/a0002487_main.jpg?20230106161700"
+                class="card-img-top"
+                alt="picture of japan"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Titolo</h5>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Excepturi, voluptatibus! Voluptatibus repellat dolorum
+                  pariatur. Sequi eos ipsum fuga?
+                </p>
+                <a href="#" class="btn btn-info">Prenota</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="my-4 mx-5 d-none d-sm-block">
+        <h2 class="mb-3">Offerta del giorno</h2>
+        <div class="row">
+          <div class="col-6 col-lg-8">
+            <img
+              src="https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/02/a0002487/img/basic/a0002487_main.jpg?20230106161700"
+              width="100%"
+              alt="picture of japan"
+              class="rounded shadow-lg"
+            />
+          </div>
+          <div class="col-6 col-lg-3">
+            <h1>Tokyo</h1>
+            <p class="text-secondary font-monospace">15-01-2023-31-01-2023</p>
+            <p class="lead">Ville a partire da 500€, non fartele sfuggire!</p>
+            <a href="#" class="btn bg-black text-white rounded-pill py-0 px-2"
+              >Prenota</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="my-3 mt-5 mx-5" id="lastMinute">
+        <h2 class="mb-3">Last Minute</h2>
+        <div class="row row-cols-2 row-cols-lg-3 row-cols-xl-6">
+          <div class="col sm-2 mb-3 lg-4">
+            <div class="card border-0 mt-2 shadow-lg">
+              <img
+                src="https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/02/a0002487/img/basic/a0002487_main.jpg?20230106161700"
+                class="card-img-top rounded"
+                alt="picture of japan"
+              />
+            </div>
+          </div>
+          <div class="col sm-2 mb-3 lg-4">
+            <div class="card mt-2">
+              <img
+                src="https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/02/a0002487/img/basic/a0002487_main.jpg?20230106161700"
+                class="card-img-top rounded shadow-lg"
+                alt="picture of japan"
+              />
+            </div>
+          </div>
+          <div class="col sm-2 mb-3 lg-4">
+            <div class="card mt-2">
+              <img
+                src="https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/02/a0002487/img/basic/a0002487_main.jpg?20230106161700"
+                class="card-img-top rounded shadow-lg"
+                alt="picture of japan"
+              />
+            </div>
+          </div>
+          <div class="col sm-2 mb-3 lg-4">
+            <div class="card mt-2">
+              <img
+                src="https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/02/a0002487/img/basic/a0002487_main.jpg?20230106161700"
+                class="card-img-top rounded shadow-lg"
+                alt="picture of japan"
+              />
+            </div>
+          </div>
+          <div class="col sm-2 mb-3 lg-4">
+            <div class="card mt-2">
+              <img
+                src="https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/02/a0002487/img/basic/a0002487_main.jpg?20230106161700"
+                class="card-img-top rounded shadow-lg"
+                alt="picture of japan"
+              />
+            </div>
+          </div>
+          <div class="col sm-2 mb-3 lg-4">
+            <div class="card mt-2">
+              <img
+                src="https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/02/a0002487/img/basic/a0002487_main.jpg?20230106161700"
+                class="card-img-top rounded shadow-lg"
+                alt="picture of japan"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-5 mx-5" id="reviews">
+        <h3 class="text-center">Dicono di noi</h3>
+        <div class="row my-2">
+          <div class="col-1">
+            <img
+              src="./assets/img/Portrait_Placeholder.png"
+              width="100%"
+              class="rounded-circle border border-2 border-info"
+            />
+          </div>
+          <div class="col-11">
+            <h5>Username</h5>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut
+              nesciunt dicta adipisci! Eum alias, obcaecati dignissimos
+              molestias porro, consectetur minus maiores reiciendis quae vel
+              officia id, tempora iure. Rerum, ex. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Vel fuga id, laudantium itaque
+              quidem soluta? Sit veritatis aliquid ab dolores asperiores quos,
+              quaerat esse minus qui, iusto illo ea fuga.
+            </p>
+          </div>
+        </div>
+        <div class="row my-2">
+          <div class="col-1">
+            <img
+              src="./assets/img/Portrait_Placeholder.png"
+              width="100%"
+              class="rounded-circle border border-2 border-info"
+            />
+          </div>
+          <div class="col-11">
+            <h5>Username</h5>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut
+              nesciunt dicta adipisci! Eum alias, obcaecati dignissimos
+              molestias porro, consectetur minus maiores reiciendis quae vel
+              officia id, tempora iure. Rerum, ex. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Vel fuga id, laudantium itaque
+              quidem soluta? Sit veritatis aliquid ab dolores asperiores quos,
+              quaerat esse minus qui, iusto illo ea fuga.
+            </p>
+          </div>
+        </div>
+        <div class="row my-2">
+          <div class="col-1">
+            <img
+              src="./assets/img/Portrait_Placeholder.png"
+              width="100%"
+              class="rounded-circle border border-2 border-info"
+            />
+          </div>
+          <div class="col-11">
+            <h5>Username</h5>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut
+              nesciunt dicta adipisci! Eum alias, obcaecati dignissimos
+              molestias porro, consectetur minus maiores reiciendis quae vel
+              officia id, tempora iure. Rerum, ex. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Vel fuga id, laudantium itaque
+              quidem soluta? Sit veritatis aliquid ab dolores asperiores quos,
+              quaerat esse minus qui, iusto illo ea fuga.
+            </p>
+          </div>
+        </div>
+      </section>
+      <footer class="bg-dark text-center">
+        <div>
+          <a
+            href="#"
+            class="btn text-secondary border border-1 border-secondary mt-5 mb-3 rounded"
+            >Contattaci</a
+          >
+          <p class="text-white pb-5">
+            &copy; 2021 Doge Travel LTD. All rights Deserved
+          </p>
+        </div>
+      </footer>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
